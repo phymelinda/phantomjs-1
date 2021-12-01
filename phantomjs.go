@@ -31,7 +31,7 @@ const (
 // Default settings.
 const (
 	DefaultPort    = 20202
-	DefaultBinPath = "phantomjs"
+	DefaultBinPath = "phantomjs --ignore-ssl-errrors=yes"
 )
 
 // Process represents a PhantomJS process.
