@@ -31,7 +31,7 @@ const (
 // Default settings.
 const (
 	DefaultPort    = 20202
-	DefaultBinPath = "phantomjs --ignore-ssl-errrors=yes"
+	DefaultBinPath = "phantomjs"
 )
 
 // Process represents a PhantomJS process.
@@ -82,7 +82,7 @@ func (p *Process) Open() error {
 		}
 
 		// Start external process.
-		cmd := exec.Command(p.BinPath, scriptPath)
+		cmd := exec.Command(p.BinPath, scriptPath + " --ignore-ssl-errrors=yes")
 		cmd.Env = []string{fmt.Sprintf("PORT=%d", p.Port)}
 		cmd.Stdout = p.Stdout
 		cmd.Stderr = p.Stderr
