@@ -82,7 +82,7 @@ func (p *Process) Open() error {
 		}
 
 		// Start external process.
-		cmd := exec.Command(p.BinPath, scriptPath, "--ignore-ssl-errrors=yes")
+		cmd := exec.Command(p.BinPath, "--web-security=no", "--ignore-ssl-errrors=yes", scriptPath)
 		cmd.Env = []string{fmt.Sprintf("PORT=%d", p.Port)}
 		cmd.Stdout = p.Stdout
 		cmd.Stderr = p.Stderr
